@@ -162,6 +162,7 @@ vim.opt.scrolloff = 10
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
+vim.keymap.set('n', ']d', vim.diagnostic.open_float, { noremap = true, silent = true, desc = 'Open diagnostics in a floating window' })
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
@@ -624,8 +625,8 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
+        eslint = {},
         ts_ls = {},
-        --
 
         lua_ls = {
           -- cmd = {...},
