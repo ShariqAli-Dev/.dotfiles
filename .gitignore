@@ -1,6 +1,8 @@
 *
 !/i3
 !/i3/**
+!/.obsidian
+!/.obsidian/**
 !/nvim
 !/nvim/**
 !.gitignore

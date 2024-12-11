@@ -615,11 +615,15 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        clangd = {},
+        clangd = {
+          filetypes = { 'c', 'cpp', 'objc', 'objcpp' }, -- exclude "proto"
+        },
         gopls = {},
         pyright = {},
         rust_analyzer = {},
         cssls = {},
+        pbls = {},
+        hydra_lsp = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -723,6 +727,8 @@ require('lazy').setup({
         markdown = { 'prettierd', 'prettier', stop_after_first = true },
         css = { 'prettierd', 'prettier', stop_after_first = true },
         python = { 'isort', 'black' },
+        proto = { 'buf' },
+        yaml = { 'prettierd', 'prettier', stop_after_first = true },
         -- Conform can also run multiple formatters sequentially
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
@@ -929,6 +935,8 @@ require('lazy').setup({
         'typescript',
         'css',
         'scss',
+        'proto',
+        'yaml',
       },
       -- Autoinstall languages that are not installed
       auto_install = true,
